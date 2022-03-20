@@ -44,6 +44,7 @@ ui <- fluidPage(
                          dataTableOutput("simulation_table_2"),
                          br(), br()),
                 tabPanel("Simulation Comparisons",
+                         htmlOutput("disclaimer_3"),
                          br(), 
                          sliderInput("tickets_n", "Number of tickets (N)", min = 1, max = 1000, 
                                      value = 10, step = 10, animate = TRUE), 
@@ -67,6 +68,7 @@ server <- function(input, output, session) {
     output$instructions <- renderUI({HTML(instructions)})
     output$disclaimer_1 <- renderUI({HTML(disclaimer)})
     output$disclaimer_2 <- renderUI({HTML(disclaimer)})
+    output$disclaimer_3 <- renderUI({HTML(disclaimer)})
     # Lottery 1
     describe_1 <- eventReactive(input$go,{describe_lottery(input$values_1, input$percentages_1)})
     output$lottery_description_1 <- renderUI({HTML(describe_1()$descriptions)})
