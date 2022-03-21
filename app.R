@@ -94,7 +94,7 @@ server <- function(input, output, session) {
     output$table_1_header <- renderUI({
         table_1_header()
     })
-    get_sim_table_1_react <- reactive({
+    simulate_1 <- reactive({
         description_list <- describe_1()
         get_sim_table(input$simulation_n, 
                       description_list$cum_percentages, 
@@ -103,7 +103,7 @@ server <- function(input, output, session) {
                       description_list$expected_value)
     })
     output$simulation_table_1 <- renderDataTable({
-        get_sim_table_1_react()  %>% 
+      simulate_1()  %>% 
             datatable(rownames= FALSE) %>% 
             formatStyle(
                 columns = c("Returns", "Mean Returns", "Profit"), 
@@ -130,7 +130,7 @@ server <- function(input, output, session) {
     output$table_2_header <- renderUI({
         table_2_header()
     })
-    get_sim_table_2_react <- reactive({
+    simulate_2 <- reactive({
         description_list <- describe_2()
         get_sim_table(input$simulation_n, 
                       description_list$cum_percentages, 
@@ -139,7 +139,7 @@ server <- function(input, output, session) {
                       description_list$expected_value)
     })
     output$simulation_table_2 <- renderDataTable({
-        get_sim_table_2_react() %>%
+      simulate_2() %>%
             datatable(rownames= FALSE) %>% 
             formatStyle(
                 columns = c("Returns", "Mean Returns", "Profit"), 
@@ -152,20 +152,20 @@ server <- function(input, output, session) {
         })
     output$percentage_distribution_plot <- renderPlotly({
         tickets <- input$tickets_n
-        table_1 <- get_sim_table_1_react() %>%
+        table_1 <- simulate_1() %>%
             filter(Tickets == tickets) %>% 
             select(!all_of(c("Tickets", "Returns", "Mean Returns", "Profit")))
-        table_2 <- get_sim_table_2_react() %>%
+        table_2 <- simulate_2() %>%
             filter(Tickets == tickets) %>% 
             select(!all_of(c("Tickets", "Returns", "Mean Returns", "Profit")))
         plot_percentage_comparison(table_1, table_2, tickets)
     })
     output$mean_returns_plot_1 <- renderPlotly({
-        get_sim_table_1_react() %>% 
+      simulate_1() %>% 
             plot_dot_mean_returns("Lottery 1", describe_1()$expected_value)
     })
     output$mean_returns_plot_2 <- renderPlotly({
-        get_sim_table_2_react() %>% 
+      simulate_2() %>% 
             plot_dot_mean_returns("Lottery 2", describe_2()$expected_value)
     })
 }
