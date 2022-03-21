@@ -252,7 +252,7 @@ about <- paste(
   ),
    paragraph(
     "<i>Cheers,</i>"
-  )),
+  ),
   paragraph(
     "<i>Lucas Thevenard Gomes</i>"
   ))
