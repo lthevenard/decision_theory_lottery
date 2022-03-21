@@ -25,6 +25,8 @@ ui <- fluidPage(
         ),
         mainPanel(
             tabsetPanel(
+                tabPanel("About",
+                         htmlOutput("about")),
                 tabPanel("Lottery 1",
                          htmlOutput("disclaimer_1"),
                          htmlOutput("lottery_description_1"),
@@ -65,6 +67,7 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
+    output$about <- renderUI({HTML(paste0(about, instructions))})
     output$instructions <- renderUI({HTML(instructions)})
     output$disclaimer_1 <- renderUI({HTML(disclaimer)})
     output$disclaimer_2 <- renderUI({HTML(disclaimer)})

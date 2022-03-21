@@ -1,5 +1,19 @@
 # FUNCTIONS ----
 
+## Little helpers ----
+
+bold <- function(string, color = NULL) {
+  if (is.null(color)) {
+    return(paste0("<b>", string, "</b>"))
+  } else {
+    return(paste0("<b style='color:", color, ";'>", string, "</b>"))
+  }
+}
+
+paragraph <- function(..., lineheight = "150%") {
+  paste0("<p style = 'line-height: ", lineheight, ";'>",...,"</p>")
+}
+
 ## Lottery description ----
 
 get_result_names <- function(n) {
@@ -26,15 +40,6 @@ test_inputs <- function(values, percentages) {
   return((
     class(values) == "try-error" || class(percentages) == "try-error" || any(is.na(values)) || any(is.na(percentages)) || length(values) != length(percentages) || sum(percentages) != 1 
   ))
-}
-
-bold <- function(string, color = NULL) {
-  if (is.null(color)) {
-    return(paste0("<b>", string, "</b>"))
-  } else {
-    return(paste0("<b style='color:", color, ";'>", string, "</b>"))
-  }
-  
 }
 
 describe_option <- function(result_name, value, percentage) {
@@ -227,6 +232,27 @@ instructions <- paste0(h3("Instructions"),
                        "<li style = 'margin-bottom:8px;'>Use the American convention for decimal numbers: use a dot (.), not a comma (,);</li>",
                        "<li style = 'margin-bottom:8px;'>The sum of all percentages must equal 1 (100%);</li>",
                        "<li style = 'margin-bottom:8px;'>The length of both lists must be equal and the maximum length is 20.</li></ul><br><br>")
+
+about <- paste(
+  h2("About this project"),
+  paragraph(
+    "This app is an educational resource developped to help FGV's Law students better understand the concept of expected value. ",
+    "It is part of a course on Decision Theory at <b>FGV's Rio de Janeiro Law School</b>, in which the students have to grapple with the problem of how to evaluate multiple 'States of the World' in the context of decisions under risk. ",
+    "We use the metaphor of a lottery in the course as a simplification of this evaluation problem, and the first evaluation method the students learn is to calculate the expected value of a lottery that has finite discreet outcomes and known probabilities. ",
+    "In this context, the problem becomes: how much would you be willing to pay for a lottery ticket that can give you a prize X, Y or Z with probabilities Px, Py and Pz, respectively?"
+  ),
+  paragraph(
+    "While preparing the course, the idea then came to their teacher to use a little bit of programming to simulate different lotteries, and to compare the actual results of these simulations with the expected value of each lottery. ",
+    "The goal is to let the students play with different scenarios, so they can better understand (and convince themselves) that the mean outcome of a probabilistic experiment tend towards its theoretical expected value when the experiment is reproduced many times. ",
+    "Another objective of this app is to show the limitations of the concept of expected value, particularly it's disregard - as a measure of central tendency - for the dispersion of the outcomes in different lotteries. ",
+    "This is why the app offers the possibility of comparing two lotteries, and the idea is to compare two lotteries with different sets of outcomes and probabilities, but with the same expected value."
+  ),
+  paragraph(
+    "I sincerely hope you enjoy this little experiment, even if it is a bit nerdy."
+  ),
+  paragraph(
+    "<i>Lucas Thevenard Gomes</i>"
+  ))
 
 disclaimer <- "<br><i>Please provide the information about the lotteries you want to simulate according to the instructions, then press 'Simulate'.</i><br>"
 
