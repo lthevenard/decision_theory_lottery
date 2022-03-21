@@ -248,8 +248,11 @@ about <- paste(
     "This is why the app offers the possibility of comparing two lotteries, and the idea is to compare two lotteries with different sets of outcomes and probabilities, but with the same expected value."
   ),
   paragraph(
-    "I sincerely hope you enjoy this little experiment, even if it is a bit nerdy."
+    "I sincerely hope you enjoy this experiment. If you know a little bit of R code and want to make it your own, you can access the original code <a href='https://github.com/lthevenard/decision_theory_lottery'>here</a>."
   ),
+   paragraph(
+    "<i>Cheers,</i>"
+  )),
   paragraph(
     "<i>Lucas Thevenard Gomes</i>"
   ))
