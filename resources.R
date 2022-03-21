@@ -238,7 +238,7 @@ about <- paste(
   paragraph(
     "This app is an educational resource developped to help FGV's Law students better understand the concept of expected value. ",
     "It is part of a course on Decision Theory at <b>FGV's Rio de Janeiro Law School</b>, in which the students have to grapple with the problem of how to evaluate multiple 'States of the World' in the context of decisions under risk. ",
-    "We use the metaphor of a lottery in the course as a simplification of this evaluation problem, and the first evaluation method the students learn is to calculate the expected value of a lottery that has finite discreet outcomes and known probabilities. ",
+    "We use the metaphor of a lottery in the course as a simplification of this evaluation problem, and the first evaluation method the students learn is to calculate the expected value of a lottery that has finite discrete outcomes and known probabilities. ",
     "In this context, the problem becomes: how much would you be willing to pay for a lottery ticket that can give you a prize X, Y or Z with probabilities Px, Py and Pz, respectively?"
   ),
   paragraph(
