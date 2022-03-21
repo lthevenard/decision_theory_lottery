@@ -237,18 +237,18 @@ about <- paste(
   h2("About this project"),
   paragraph(
     "This app is an educational resource developped to help FGV's Law students better understand the concept of expected value. ",
-    "It is part of a course on Decision Theory at <b>FGV's Rio de Janeiro Law School</b>, in which the students have to grapple with the problem of how to evaluate multiple 'States of the World' in the context of decisions under risk. ",
+    "It is part of a course on Decision Theory at <b><a href='https://direitorio.fgv.br'>FGV's Rio de Janeiro Law School</a></b>, in which the students have to grapple with the problem of how to evaluate multiple 'States of the World' in the context of decisions under risk. ",
     "We use the metaphor of a lottery in the course as a simplification of this evaluation problem, and the first evaluation method the students learn is to calculate the expected value of a lottery that has finite discrete outcomes and known probabilities. ",
     "In this context, the problem becomes: how much would you be willing to pay for a lottery ticket that can give you a prize X, Y or Z with probabilities Px, Py and Pz, respectively?"
   ),
   paragraph(
     "While preparing the course, the idea then came to their teacher to use a little bit of programming to simulate different lotteries, and to compare the actual results of these simulations with the expected value of each lottery. ",
-    "The goal is to let the students play with different scenarios, so they can better understand (and convince themselves) that the mean outcome of a probabilistic experiment tend towards its theoretical expected value when the experiment is reproduced many times. ",
+    "The goal is to let the students play with different scenarios, so they can better understand why - and convince themselves that - the mean outcome of a probabilistic experiment tend towards its theoretical expected value when the experiment is reproduced many times. ",
     "Another objective of this app is to show the limitations of the concept of expected value, particularly it's disregard - as a measure of central tendency - for the dispersion of the outcomes in different lotteries. ",
-    "This is why the app offers the possibility of comparing two lotteries, and the idea is to compare two lotteries with different sets of outcomes and probabilities, but with the same expected value."
+    "This is why the app offers the possibility of comparing two lotteries, and the idea is to compare lotteries with different sets of outcomes and probabilities, but with the same expected value."
   ),
   paragraph(
-    "I sincerely hope you enjoy this experiment. If you know a little bit of R code and want to make it your own, you can access the original code <a href='https://github.com/lthevenard/decision_theory_lottery'>here</a>."
+    "I sincerely hope you enjoy this experiment. If you know a little bit of R programming and want to make it your own, you can access the original code <a href='https://github.com/lthevenard/decision_theory_lottery'>here</a>."
   ),
    paragraph(
     "<i>Cheers,</i>"
